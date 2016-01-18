@@ -1,0 +1,82 @@
+Options 		-MultiViews
+
+RewriteEngine 	On
+
+Options 		-Indexes
+
+RewriteBase 	/
+
+RewriteCond 	%{REQUEST_FILENAME} !-d
+RewriteCond 	%{REQUEST_FILENAME} !-f
+RewriteCond 	%{REQUEST_FILENAME} !-l
+
+
+#Rewrite admin page
+RewriteRule    ^taka_acp									index.php?site=admin	   								[NC,L]
+RewriteRule    ^home					    				index.php?site=home										[NC,L]
+
+RewriteRule    ^contact					    				index.php?site=contact										[NC,L]
+
+RewriteRule    ^about_us					    			index.php?site=about_us										[NC,L]
+
+#Rewrite login
+RewriteRule    ^login										index.php?site=login   									[NC,L]
+
+#Rewrite login
+RewriteRule    ^logout										index.php?site=logout   								[NC,L]
+
+#Rewrite register
+RewriteRule    ^register									index.php?site=register   								[NC,L]
+
+#Rewrite product
+RewriteRule    ^product/([A-Za-z0-9-]+)/?$    				index.php?site=product&product=$1    					[NC,L]
+RewriteRule    ^product_category/([A-Za-z0-9-]+)/?$    		index.php?site=product_category&category=$1    			[NC,L]
+
+#Rewrite post
+RewriteRule    ^post/?$					    				index.php?site=home										[NC,L]
+RewriteRule    ^post/([A-Za-z0-9-]+)/?$    					index.php?site=post&post=$1    							[NC,L]
+RewriteRule    ^post_category/?$				    		index.php?site=post_category			    			[NC,L]
+RewriteRule    ^post_category/([A-Za-z0-9-]+)/?$    		index.php?site=post_category&category=$1    			[NC,L]
+RewriteRule    ^([A-Za-z0-9-]+)\.html/?$    				index.php?site=post&post=$1    							[NC,L]
+
+#Rewrite page
+RewriteRule    ^page/([A-Za-z0-9-]+)/?$    					index.php?site=page&page=$1    							[NC,L]
+
+#Rewrite user
+RewriteRule    ^([A-Za-z0-9-]+)/?$    						index.php?site=user&user=$1    							[NC,L]
+
+#Rewrite ajax
+RewriteRule    ^ajax/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$    	index.php?site=ajax&object=$1&action=$2    				[NC,L]
+
+#Rewrite knowledge_base
+RewriteRule    ^kb											index.php?site=knowledge_base   						[NC,L]
+
+#Rewrite help
+RewriteRule    ^help										index.php?site=help   									[NC,L]
+
+#Rewrite 204 No Content
+RewriteRule    ^204.error									index.php?site=error&type=no_content   					[NC,L]
+
+#Rewrite 400 Bad Request
+RewriteRule    ^400.error									index.php?site=error&type=bad_request   				[NC,L]
+
+#Rewrite 403 Forbidden
+RewriteRule    ^403.error									index.php?site=error&type=forbidden   					[NC,L]
+
+#Rewrite 404 Not Found
+RewriteRule    ^404.error									index.php?site=error&type=not_found   					[NC,L]
+
+#Rewrite 405 Method Not Allowed
+RewriteRule    ^405.error									index.php?site=error&type=not_allowed   				[NC,L]
+
+#Rewrite 406 Not Acceptable
+RewriteRule    ^406.error									index.php?site=error&type=not_acceptable   				[NC,L]
+
+#Rewrite 408 Request Time-Out
+RewriteRule    ^408.error									index.php?site=error&type=time_out   					[NC,L]
+
+#Rewrite 500 Server Error 
+RewriteRule    ^500.error									index.php?site=error&type=server_error   				[NC,L]
+
+#Rewrite 502 Bad Gateway  
+RewriteRule    ^502.error									index.php?site=error&type=bad_geteway   				[NC,L]
